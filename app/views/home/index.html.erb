@@ -2,7 +2,11 @@
 
 <%= render :partial => 'home/topNavigation'%>
 
-  <div id="signup_form_div"> </div>
+
+
+  <div id="signup_form_div" title="Sign Up now for FREE !!!" style="display: none">
+    <%= render partial: "devise/registrations/new" %>
+  </div>
 
 
 
@@ -10,3 +14,13 @@
 
 
 
+
+<script>
+    setTimeout( function() {
+        $( "#signup_form_div" ).dialog({ autoOpen: false });
+        $("#sign_up_button").click(
+           function() {     $( "#signup_form_div" ).dialog("open");
+           }
+        );
+    }, 1000 );
+</script>
